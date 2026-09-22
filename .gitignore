@@ -1,0 +1,21 @@
+# Python virtual environment: machine-specific, rebuilt from requirements.txt
+.venv/
+
+# macOS Finder metadata
+.DS_Store
+
+# Jupyter autosave folder (not created by VS Code, excluded in case)
+.ipynb_checkpoints/
+
+# NHANES source data: download from NCHS, see README
+data/
+
+# Dated notebook snapshots, superseded by commit history
+analysis_*.ipynb
+
+# Superseded early scratch files
+explore.py
+explore.ipynb
+
+# Working decision log, kept outside the repository
+DECISIONS.md
