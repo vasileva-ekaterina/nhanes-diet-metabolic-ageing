@@ -211,6 +211,35 @@ The covariates behave as expected for mortality. Risk rises steeply and in order
 
 The model's concordance of 0.780 comes almost entirely from age and is not evidence for the diet score.
 
+### Diet and metabolic syndrome
+
+In the fasting subsample, 63.7% (647 of 1,015) meet the primary definition of metabolic syndrome and 50.3% (511) the measurements-only definition.
+
+The diet score is not significantly associated with metabolic syndrome under either definition: **odds ratio 0.976 per point (95% CI 0.951–1.003, p = 0.080)** under the primary definition and **0.978 (0.954–1.003, p = 0.090)** under measurements-only, in the same 906 participants. Both estimates point towards lower odds with a better diet, but both intervals include 1, and the result is reported as a null.
+
+| Term | Primary: OR (95% CI) | p | Measurements-only: OR (95% CI) | p |
+|---|---:|---:|---:|---:|
+| age 65–74 (vs 50–64) | 2.086 (1.466–2.970) | <0.001 | 1.408 (1.017–1.947) | 0.039 |
+| age 75+ (vs 50–64) | 1.722 (1.180–2.514) | 0.005 | 1.542 (1.079–2.205) | 0.017 |
+| female (vs male) | 1.159 (0.860–1.564) | 0.332 | 1.224 (0.921–1.627) | 0.164 |
+| education 2 (vs 1) | 1.033 (0.588–1.818) | 0.909 | 1.226 (0.726–2.068) | 0.446 |
+| education 3 (vs 1) | 0.980 (0.589–1.630) | 0.937 | 1.008 (0.630–1.612) | 0.974 |
+| education 4 (vs 1) | 0.757 (0.455–1.261) | 0.286 | 1.171 (0.728–1.884) | 0.516 |
+| education 5 (vs 1) | 0.465 (0.271–0.799) | 0.006 | 0.712 (0.427–1.187) | 0.193 |
+| current smoker (vs never) | 0.967 (0.638–1.465) | 0.875 | 0.989 (0.662–1.476) | 0.955 |
+| former smoker (vs never) | 1.157 (0.830–1.612) | 0.389 | 1.113 (0.814–1.523) | 0.502 |
+| special diet | 2.765 (1.805–4.234) | <0.001 | 2.738 (1.878–3.992) | <0.001 |
+| income-to-poverty ratio | 1.102 (0.996–1.218) | 0.059 | 1.044 (0.949–1.149) | 0.374 |
+| **diet score (per point)** | **0.976 (0.951–1.003)** | **0.080** | **0.978 (0.954–1.003)** | **0.090** |
+
+*Logistic regression, n = 906 under both definitions. The special diet odds ratio reflects reverse causation (special diets are adopted after a metabolic diagnosis) and is not an effect.*
+
+Figure 2 sets these estimates beside the Cox hazard ratio. The two analyses agree in direction, and only the mortality interval excludes 1. They should not be compared number to number: an odds ratio and a hazard ratio are different measures, and with metabolic syndrome at 63.7% prevalence the odds ratio overstates the corresponding risk ratio, so the metabolic syndrome association is weaker than its odds ratio suggests. The simplest reading of the difference is power: the mortality analysis has 1,998 participants and 398 timed deaths, against a yes/no outcome in 906. A pathway difference, with diet related to mortality other than through metabolic syndrome, cannot be excluded from these results, but neither can it be claimed.
+
+![Diet-score odds ratios and hazard ratio with 95% confidence intervals](figures/fig2_diet_score_estimates.png)
+
+**Figure 2.** Diet-score estimates per one-point increase, with 95% confidence intervals. Panel A: odds ratios for metabolic syndrome under the two definitions (n = 906). Panel B: hazard ratio for death (n = 1,998, 398 deaths). Both models adjust for the same covariates. Odds ratios and hazard ratios are different measures, so they are drawn on separate axes and should be read for direction and precision, not compared number to number; at 63.7% prevalence the odds ratio overstates the corresponding risk ratio. Both metabolic syndrome intervals include 1; the mortality interval does not.
+
 ## Limitations
 
 ## What I'd do next
