@@ -248,6 +248,23 @@ The two definitions differ in more than prevalence (Figure 3). Under measurement
 
 Changing the definition leaves the diet score unchanged but moves other terms, in an informative way. Education level 5 goes from 0.465 (p = 0.006) to 0.712 (p = 0.193), and income from 1.102 (p = 0.059) to 1.044 (p = 0.374). Both are markers of healthcare contact, and a statin prescription needs a doctor, a lipid test and follow-up: under the primary definition, education and income were partly predicting who had been prescribed a statin rather than who had metabolic dysfunction. This accounts for most of the counterintuitive positive income association; in the mortality model, which has no prescription arm, income runs in the expected direction (hazard ratio 0.887). The age terms also attenuate, and the primary definition's pattern of higher odds at 65–74 than at 75+ does not survive the change of definition: under measurements-only, odds rise in order with age. Special diet is unchanged (2.765 against 2.738), consistent with its reflecting the underlying condition rather than how the outcome is defined.
 
+### Prediction benchmark
+
+| Model | Training AUC | Test AUC | Gap (training − test) |
+|---|---:|---:|---:|
+| logistic regression (unpenalised) | 0.662 | **0.663** | −0.001 |
+| gradient boosting (default settings) | 0.990 | **0.618** | +0.372 |
+
+*Training set n = 679, test set n = 227; both models receive the same 20 features.*
+
+On the 227 held-out participants, logistic regression reaches a test AUC of 0.663 and gradient boosting 0.618. The difference, −0.045, falls outside the 0.03–0.04 band fixed before the gradient boosting result was seen: the flexible model gained nothing over the linear one. It should not be read as significantly worse; that would need a paired comparison, and a single split of 227 cannot establish it.
+
+The more telling result is the gap between training and test performance. Logistic regression does as well on participants it has not seen as on those it was fitted to (−0.001). Gradient boosting reaches 0.990 on the training set and loses almost all of that advantage on the test set (+0.372). The linear model's form does not let it memorise individual participants; the flexible model's does, and it did.
+
+The training AUC of 0.990 is memorisation, not leakage of the outcome into the features, and this can be checked rather than asserted. Logistic regression received the identical 20 features and reached only 0.662 on the same training participants. A leaked outcome needs no flexibility to exploit, since a single coefficient would find it, so if the label were present in the features the linear model would have found it too. With eight continuous nutrient densities, energy intake and income, each participant has an effectively unique combination of values, and a hundred sequential trees can divide the training set finely enough to classify almost every participant correctly. None of that carries over to new participants.
+
+At a test AUC of 0.663, the model is not a screening tool and is not offered as one: its purpose is the comparison between the two approaches.
+
 ## Limitations
 
 ## What I'd do next
