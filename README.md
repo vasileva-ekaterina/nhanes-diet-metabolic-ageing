@@ -158,6 +158,18 @@ Because follow-up is recorded in whole months, deaths in the same month cannot b
 
 The proportional hazards assumption, that each covariate's effect stays constant over follow-up, was tested with Schoenfeld residuals (`check_assumptions`, threshold 0.05), and no covariate violated it. This is evidence against a violation rather than proof that none exists: with 398 deaths, a modest departure could go undetected.
 
+### Layer 4: prediction benchmark
+
+Layer 4 asks a narrower question: given the same inputs, does a flexible model predict metabolic syndrome better than logistic regression? It compares two modelling approaches on one prediction task; it is not intended as a clinical prediction tool. Both models use the same 906 participants as Layer 2, split once into a training set of 679 and a held-out test set of 227. The split is stratified, so both sets have the same prevalence, and uses a fixed random seed, so it is identical on every run.
+
+The features are named explicitly as an allow-list: the eight nutrient densities, total energy intake, special diet and the five demographic covariates, 15 columns in all, which become 20 once categories are expanded into indicators. The main decision is what to leave out. Metabolic syndrome is defined by five criteria, so a model given the criterion flags would simply reconstruct the label. The measurements the flags are built from (waist, glucose, triglycerides, HDL and blood pressure) and the medication variables that form the "or on treatment" arms are excluded for the same reason, one step removed. BMI is excluded too, as a judgement call rather than leakage: it closely tracks waist circumference, so including it would mostly let the model approximate one criterion instead of testing whether diet and demographics predict the syndrome. An allow-list is used rather than removing known problem columns, because an allow-list cannot silently pick up a new column added elsewhere in the notebook.
+
+Diet enters as the eight densities, not the diet score. The score compresses the densities through quintile cut-offs and fixed equal weights. Giving a flexible model the score would remove the structure it might exploit, and a finding that flexibility adds nothing would then follow from the input rather than from the data.
+
+Both models are fitted with `scikit-learn`. The baseline is logistic regression without a penalty, the same form of model as Layer 2, used here for prediction. Its features are standardised with means and standard deviations taken from the training set only; for an unpenalised model this cannot change the predictions and only helps the fitting routine converge. The comparison model is gradient boosting with the library's documented default settings and a fixed random seed. Neither model is tuned: tuning only the flexible model would tilt the comparison towards it, and tuning both properly needs cross-validation within the training set, which is outside this version's scope.
+
+The models are compared by AUC on the test set: the probability that a randomly chosen participant with metabolic syndrome is ranked above a randomly chosen participant without it. Accuracy is not reported. With a prevalence of 63.9% in the test set, labelling everyone as positive is already 63.9% accurate, and at the default 0.5 cut-off the logistic model labels 81.1% of the test set positive, so accuracy would mostly measure the base rate. Before the gradient boosting result was seen, the smallest difference in test AUC that would count was fixed at 0.03–0.04, about the sampling error of an AUC on 227 people. Calibration, whether predicted probabilities match observed rates, was not assessed; Limitations explains why.
+
 ## Results
 
 ## Limitations
