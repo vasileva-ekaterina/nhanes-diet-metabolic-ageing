@@ -170,6 +170,12 @@ Both models are fitted with `scikit-learn`. The baseline is logistic regression 
 
 The models are compared by AUC on the test set: the probability that a randomly chosen participant with metabolic syndrome is ranked above a randomly chosen participant without it. Accuracy is not reported. With a prevalence of 63.9% in the test set, labelling everyone as positive is already 63.9% accurate, and at the default 0.5 cut-off the logistic model labels 81.1% of the test set positive, so accuracy would mostly measure the base rate. Before the gradient boosting result was seen, the smallest difference in test AUC that would count was fixed at 0.03–0.04, about the sampling error of an AUC on 227 people. Calibration, whether predicted probabilities match observed rates, was not assessed; Limitations explains why.
 
+### Survey design
+
+NHANES is a complex, multi-stage sample: participants are selected in clusters (primary sampling units) within strata, some groups are deliberately oversampled, and each participant carries a sampling weight. This version of the analysis is unweighted and does not use the strata or clusters. Its estimates therefore describe the participants analysed here rather than the US population aged 50 and over: the prevalences reported in this README are sample figures, not national estimates. Its standard errors also ignore the clustering and are likely to be too narrow.
+
+This was a deliberate choice for the first version: an unweighted analysis with the limitation stated openly, rather than a weighted one that might not be finished. A weighted reanalysis is planned as a later version. It would use the first-day dietary weight (`WTDRD1`) and, for analyses restricted to the fasting subsample, the fasting subsample weight (`WTSAF2YR`).
+
 ## Results
 
 ## Limitations
