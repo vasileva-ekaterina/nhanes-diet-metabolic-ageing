@@ -240,6 +240,14 @@ Figure 2 sets these estimates beside the Cox hazard ratio. The two analyses agre
 
 **Figure 2.** Diet-score estimates per one-point increase, with 95% confidence intervals. Panel A: odds ratios for metabolic syndrome under the two definitions (n = 906). Panel B: hazard ratio for death (n = 1,998, 398 deaths). Both models adjust for the same covariates. Odds ratios and hazard ratios are different measures, so they are drawn on separate axes and should be read for direction and precision, not compared number to number; at 63.7% prevalence the odds ratio overstates the corresponding risk ratio. Both metabolic syndrome intervals include 1; the mortality interval does not.
 
+The two definitions differ in more than prevalence (Figure 3). Under measurements-only, the number of participants falls away past the threshold: 301 meet three criteria, 140 four and 70 five. Under the primary definition, the counts at three, four and five criteria are almost level (223, 214 and 210), because one "yes" to cholesterol medication switches on two criteria at once. 136 participants (13.4%) meet the primary definition only; no one meets the measurements-only definition without also meeting the primary one, as expected, since removing a criterion arm can only lower a count.
+
+![Number of metabolic syndrome criteria met under the two definitions](figures/fig3_mets_criteria_count.png)
+
+**Figure 3.** Number of metabolic syndrome criteria met in the fasting subsample (n = 1,015), as a percentage of the subsample, under the primary and measurements-only definitions. The dashed line marks the threshold of three criteria. Under the primary definition, one "yes" to cholesterol medication satisfies both the HDL and the triglyceride criterion; 136 participants (13.4%) meet the definition only because of that. The diet-score association did not change between definitions (odds ratio 0.976 against 0.978).
+
+Changing the definition leaves the diet score unchanged but moves other terms, in an informative way. Education level 5 goes from 0.465 (p = 0.006) to 0.712 (p = 0.193), and income from 1.102 (p = 0.059) to 1.044 (p = 0.374). Both are markers of healthcare contact, and a statin prescription needs a doctor, a lipid test and follow-up: under the primary definition, education and income were partly predicting who had been prescribed a statin rather than who had metabolic dysfunction. This accounts for most of the counterintuitive positive income association; in the mortality model, which has no prescription arm, income runs in the expected direction (hazard ratio 0.887). The age terms also attenuate, and the primary definition's pattern of higher odds at 65–74 than at 75+ does not survive the change of definition: under measurements-only, odds rise in order with age. Special diet is unchanged (2.765 against 2.738), consistent with its reflecting the underlying condition rather than how the outcome is defined.
+
 ## Limitations
 
 ## What I'd do next
