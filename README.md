@@ -178,6 +178,39 @@ This was a deliberate choice for the first version: an unweighted analysis with 
 
 ## Results
 
+All estimates are unweighted; see Survey design under Methods.
+
+### Diet and mortality
+
+Over follow-up, 440 of the 2,202 participants in the survival sample died. Unadjusted survival by diet-score quartile (Figure 1) differs across the four groups (log-rank χ² = 9.711, df = 3, p = 0.0212), but not as a gradient: the three lower quartiles overlap throughout and finish within about two percentage points of each other, while the top quartile separates from about month 40 and ends about five percentage points above them. The pattern is a top-quartile contrast.
+
+![Kaplan–Meier survival curves by diet-score quartile](figures/fig1_km_diet_quartiles.png)
+
+**Figure 1.** Kaplan–Meier survival by diet-score quartile, survival sample (n = 2,202, 440 deaths). The y-axis starts at 0.60, not 0, to make the differences visible. The diet score is relative to this sample, so the top quartile means a better diet than other participants', not a diet meeting any external standard. The curves are unadjusted; the adjusted estimate is the Cox model below. As participants are censored, fewer remain at risk and the curves become less certain towards the right.
+
+In the Cox model, adjusted for age, sex, education, income, smoking and special diet, each one-point increase in the diet score is associated with a 2.9% lower rate of death: **hazard ratio 0.971 per point (95% CI 0.953–0.989, p = 0.002)**. Per standard deviation of the score (5.603 points in the model sample), the hazard ratio is **0.848 (0.764–0.941)**: a one-SD better diet is associated with about a 15% lower rate of death over eight years of follow-up. This is the project's headline result.
+
+| Term | HR | 95% CI | p |
+|---|---:|:---:|---:|
+| age 65–74 (vs 50–64) | 2.747 | 2.061–3.662 | <0.0005 |
+| age 75+ (vs 50–64) | 9.335 | 7.187–12.124 | <0.0005 |
+| female (vs male) | 0.657 | 0.531–0.812 | <0.0005 |
+| education 2 (vs 1) | 1.525 | 1.102–2.110 | 0.011 |
+| education 3 (vs 1) | 1.239 | 0.907–1.693 | 0.178 |
+| education 4 (vs 1) | 1.070 | 0.773–1.480 | 0.684 |
+| education 5 (vs 1) | 0.670 | 0.449–0.998 | 0.049 |
+| current smoker (vs never) | 1.618 | 1.206–2.170 | 0.001 |
+| former smoker (vs never) | 1.128 | 0.900–1.414 | 0.296 |
+| special diet | 1.162 | 0.885–1.527 | 0.279 |
+| income-to-poverty ratio | 0.887 | 0.821–0.958 | 0.002 |
+| **diet score (per point)** | **0.971** | **0.953–0.989** | **0.002** |
+
+*Cox proportional hazards model, n = 1,998, 398 deaths.*
+
+The covariates behave as expected for mortality. Risk rises steeply and in order with age, to more than nine times the youngest band's rate at 75 and over. Women have a lower rate than men, current smokers a higher rate than never-smokers (former smokers do not differ), and higher income is associated with lower mortality. Education does not follow a gradient: the highest level (college graduate or above) is associated with lower mortality, but level 2 has a *higher* rate than level 1, and levels 3 and 4 do not differ from it. No explanation for level 2 is offered; it is reported as observed. Special diet, the largest term in the metabolic syndrome models, shows no association with mortality.
+
+The model's concordance of 0.780 comes almost entirely from age and is not evidence for the diet score.
+
 ## Limitations
 
 ## What I'd do next
