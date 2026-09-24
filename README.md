@@ -359,3 +359,31 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 **A European test would use SHARE, and it would be a related study, not a replication.** SHARE (the Survey of Health, Ageing and Retirement in Europe) interviews adults aged 50 and over in 28 European countries and Israel. Studies using it describe its diet data as how often people eat a few food groups ([Maltarić et al., 2025](https://doi.org/10.3390/nu17152525)), so this diet score, built from a 24-hour recall, could not be rebuilt from it. Its blood markers come from non-fasting dried blood spots collected at home in 2015 in eleven European countries and Israel; they include HbA1c, triglycerides and HDL cholesterol but not fasting glucose ([Börsch-Supan et al., 2026, preprint](https://www.medrxiv.org/content/10.64898/2026.01.28.26344911v1)), so the metabolic syndrome definition used here could only be approximated. Deaths are confirmed through a proxy during fieldwork, and SHARE notes that without a national mortality register in most European countries it cannot reliably establish whether non-respondents are still alive ([SHARE FAQ](https://share-eric.eu/data/faqs-support)); the NHANES deaths used here come from linkage to the US National Death Index. What SHARE could likely test is whether a simpler, frequency-based measure of diet quality relates to mortality in older Europeans.
 
 ## Reproducibility
+
+### Running the notebook
+
+**The analysis runs on Python 3.9.6 with the package versions pinned in `requirements.txt`.** The file pins the six libraries the notebook imports (pandas, NumPy, matplotlib, statsmodels, lifelines and scikit-learn) and the `jupyter` package that runs it. Their own dependencies are not pinned, so pip installs the newest versions that fit: a fresh install on 24 September 2026 installed `jupyterlab` 4.5.11, where the original environment has 4.5.10.
+
+**These commands download the repository and build the environment on macOS:**
+
+```bash
+git clone https://github.com/vasileva-ekaterina/nhanes-diet-metabolic-ageing.git
+cd nhanes-diet-metabolic-ageing
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+**The data files are not in this repository and have to be added before the notebook can run.** Data and population lists the twelve files the notebook reads, with links to NCHS and SHA-256 checksums to confirm each download. Put all twelve in a folder named `data` inside the project folder, next to `analysis.ipynb`. The notebook reads them by relative paths such as `data/DEMO_G.xpt`, so it must also be run from the project folder.
+
+**Then run every cell in order, in a fresh kernel:**
+
+```bash
+jupyter nbconvert --to notebook --execute analysis.ipynb --output analysis_rerun --ExecutePreprocessor.timeout=600
+```
+
+This writes the re-run notebook, with its new outputs, to `analysis_rerun.ipynb`, leaving `analysis.ipynb` unchanged; the timeout allows each cell up to ten minutes. Opening `analysis.ipynb` in VS Code, where it was developed, and running all cells does the same.
+
+**This has been tested from a clean start, on macOS only.** On 24 September 2026 the repository was cloned into an empty folder, the packages were installed from `requirements.txt` into a new environment, and the notebook was run with the command above. Every printed output matched the committed notebook apart from model-fitting timestamps and the blank lines between outputs, and the three figures were byte-for-byte identical. On Linux the same commands would be expected to work unchanged; on Windows the activation command differs. Neither has been tried.
+
+**The repository holds the notebook with its outputs, the three figures, this README and `requirements.txt`.** The data files and the virtual environment are not included; `.gitignore` keeps both out.
