@@ -281,6 +281,18 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 **The score is relative to this sample.** Components are scored by quintile within the analytic sample, so a high score means high relative to other US adults aged 50 and over here, not high against an absolute standard. The observed range is 10 to 37 out of a theoretical 8 to 40, and scores cannot be compared directly with those from other studies.
 
+### Defining the outcome and the sample
+
+**Missing waist circumference is counted as the criterion not met, which biases metabolic syndrome prevalence downward.** Waist is missing for 113 of the 2,206 participants, 39 of them in the fasting subsample. Only 23 of the 113 are also missing BMI, so 90 had body measurements taken but not waist specifically. Waist measurement requires standing and placing a tape, so it is likely to be missed more often in people with limited mobility or severe obesity, who are more likely, not less, to meet the criterion. The bias therefore has an expected direction: prevalence is slightly understated.
+
+**One questionnaire answer can satisfy two of the five criteria.** In the primary definition, taking cholesterol medication meets both the low-HDL and the high-triglyceride criterion. 380 of the 1,015 in the fasting subsample (37.4%) take cholesterol medication, so they start two criteria towards the threshold of three before any measurement is taken. The usual defence is that low HDL and high triglycerides occur together, but the data here do not support it: among the 635 unmedicated participants, only 72 (11.3%) meet both lipid criteria on measurements alone. This is why the measurements-only definition is reported alongside the primary one, and why the two prevalences differ as much as they do (63.7% and 50.3%).
+
+**Many participants sit close to the threshold.** 410 of the 1,015 (40.4%) meet exactly two or three criteria, within one criterion of the cut-off. Metabolic syndrome status in this sample is sensitive to definitional choices rather than robust to them.
+
+**Income has non-response and is top-coded.** The family income-to-poverty ratio (`INDFMPIR`) is missing for 104 of the 1,015 in the fasting subsample and 198 of the 2,202 in the survival sample, and those participants drop out of the models. Compared with those retained, they are similar in metabolic syndrome prevalence, death rate and diet score, and modestly older. That comparison can only test what was measured, so non-response may still be related to income itself. The ratio is also top-coded at 5.00, meaning family income at or above five times the poverty threshold, which compresses differences among higher-income participants. Both problems make the adjustment for income less complete, which can leave some residual confounding by income in the diet-score estimates.
+
+**Age is top-coded at 80.** 363 participants carry the value 80, and their true ages are 80 or over. Modelling age in three bands (50–64, 65–74, 75+) avoids treating all of them as exactly 80, but age is not adjusted for within each band. In the survival model, where age accounts for most of the predictive power, some residual confounding by age within bands is possible.
+
 ## What I'd do next
 
 ## Reproducibility
