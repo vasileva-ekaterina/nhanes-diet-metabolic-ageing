@@ -293,6 +293,22 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 **Age is top-coded at 80.** 363 participants carry the value 80, and their true ages are 80 or over. Modelling age in three bands (50–64, 65–74, 75+) avoids treating all of them as exactly 80, but age is not adjusted for within each band. In the survival model, where age accounts for most of the predictive power, some residual confounding by age within bands is possible.
 
+### What the results can support
+
+**These are associations, not effects.** The data are observational, and people with better diets may differ from others in ways the covariates do not capture. The metabolic syndrome analysis is also cross-sectional: diet and metabolic status are measured at the same visit, so a diagnosis can change diet rather than the other way round. The special-diet covariate shows this directly. It is the largest term in the metabolic syndrome model (OR 2.77) because special diets are adopted after a diagnosis, and it is included to control for that, not as a finding.
+
+**The metabolic syndrome result is a null, not evidence of no association.** A single-day exposure against a binary outcome in 906 participants has limited power to detect a small association. The interval (0.951 to 1.003 per point) is compatible both with a small protective association and with none.
+
+**The two layers agree in direction, not necessarily in size.** The odds ratio and the hazard ratio are different measures, and at 63.7% prevalence an odds ratio overstates the corresponding risk ratio, so the two estimates are not compared number to number. The survival analysis carries more information (398 deaths with their timing, against a yes/no outcome in 906), which is the simpler explanation for its interval excluding 1 when the metabolic syndrome interval does not. A difference in pathway, with diet related to mortality through routes other than metabolic syndrome, cannot be excluded.
+
+**The Kaplan–Meier curves are unadjusted.** Figure 1 and the log-rank test compare diet quartiles without adjusting for age or anything else, and the quartiles are unequal (648, 503, 520 and 531 participants) because many participants share the same integer score. The adjusted estimate comes from the Cox model.
+
+**Part of the metabolic syndrome model tracks healthcare contact, not metabolism alone.** When the cholesterol-medication arm is removed from the definition, the education and income terms weaken (see Results). Being prescribed a statin requires a doctor, a lipid test and follow-up, so under the primary definition these terms partly predict being diagnosed and treated.
+
+**One covariate pattern is unexplained.** In the Cox model, education level 2 has a higher hazard than level 1 (HR 1.525, 1.102 to 2.110, p = 0.011), while levels 3 and 4 do not differ from level 1. I report this as observed and do not offer an explanation.
+
+**The study is not powered for subgroups, and none was analysed.** Split by age band, the 75+ group would have had roughly six outcome events per model parameter, below the conventional minimum of ten, so any estimate there would have been unstable.
+
 ## What I'd do next
 
 ## Reproducibility
