@@ -340,4 +340,16 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 **One conflict in the survival model has to be resolved before that.** For sampling weights, the `lifelines` documentation recommends `robust=True` to get accurate standard errors, and also states that `robust=True` does not handle tied event times, with results that may differ materially when ties are numerous. Follow-up is recorded in whole months, and 425 of the 440 deaths in the survival sample (96.6%) share their month with at least one other death. How to reconcile the two is an open question for the weighted version, not a setting to accept.
 
+### Questions these data could answer
+
+**Whether the diet-score association differs by age.** No age-band analysis was run: an interaction term's standard error is roughly double that of the main effect, and the Layer 2 main effect was already not significant. Fitting the interaction anyway and reporting its confidence interval as a bounded null would show which sizes of difference between age groups the data can still rule out.
+
+**Cause-specific mortality.** The mortality file also records the leading underlying cause of death (`UCOD_LEADING`) and two further cause-of-death variables, `DIABETES` and `HYPERTEN`, so deaths could be modelled by cause. Each cause would be a new outcome with fewer events than all-cause mortality, and so its own power problem. NCHS also substituted synthetic values for the underlying cause of death, not only for follow-up time, in some records of the public-use file. One practical trap: `pd.read_fwf` infers `UCOD_LEADING` as a number and drops the leading zeros of its codes, so it would need `dtype=str`.
+
+**Tuning both Layer 4 models.** The logistic model ran unpenalised and gradient boosting ran with its defaults. Tuning only the flexible model would tilt the comparison toward it, so both would be tuned, by cross-validation inside the training set and never against the test set. For gradient boosting, `max_depth` and the `learning_rate` / `n_estimators` pair are where it would start. Until then, "no gain" holds for the default model only.
+
+**A score that rewards protein.** Protein was left out of the diet score because total protein does not distinguish its sources: 80 g from processed meat scores the same as 80 g from legumes. For adults over 50 there is a case for rewarding it anyway, given the risk of age-related muscle loss. A variant score with protein as a rewarded component would show whether that choice changes the results.
+
+**Imputing waist circumference from BMI.** Where waist was not measured (113 of the 2,206, and 39 of the fasting subsample) the waist criterion was counted as not met. Waist is more often skipped for people with mobility limitations or severe obesity, so this likely biases metabolic syndrome prevalence slightly downward. Most of those missing waist (90 of 113) had BMI measured, and the two correlate strongly, so waist could be imputed from BMI; that is a modelling choice needing its own justification, for a gain of 39 participants in the primary sample.
+
 ## Reproducibility
