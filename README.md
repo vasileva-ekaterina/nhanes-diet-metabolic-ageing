@@ -317,6 +317,12 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 **The benchmark rests on one train/test split with default settings.** Both models were evaluated once, on 227 held-out participants, and gradient boosting was run with its default settings, without tuning. Before seeing the result, I fixed a difference of about 0.03 to 0.04 in AUC as the smallest that would count at this test-set size. A different split, or a tuned model, could give different numbers, which is why the result is stated as no gain from the flexible model and not as the flexible model being worse.
 
+### Who the results apply to
+
+**The analysis is unweighted, so its numbers describe this sample, not the US population.** NHANES is designed to represent the US population only when its survey weights are applied, and the analysis does not use them, as Methods explains. The 63.7% metabolic syndrome prevalence is therefore the prevalence in this sample, not an estimate for US adults aged 50 and over. The confidence intervals also treat participants as independent, ignoring the survey's clustered design, so they may be too narrow.
+
+**The data are from one US survey cycle.** Diet was measured in 2011–2012, and both diets and the population's health differ between countries. Whether the associations hold in European populations of the same age has not been tested here; What I'd do next names a candidate dataset.
+
 ## What I'd do next
 
 ## Reproducibility
