@@ -334,4 +334,10 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 3. **Energy adjustment by the residual method.** The score uses nutrient density per 1,000 kcal, chosen because it is easier to explain. The residual method is equally standard; re-running with it would show whether the results depend on that choice.
 4. **Calibration of the Layer 4 models.** Only discrimination was assessed; Limitations explains why calibration was not. It would matter if the predicted probabilities were ever used to make decisions about individuals.
 
+### Weighting the analysis
+
+**The analysis is unweighted; a weighted reanalysis was planned from the start as the next version.** NHANES is a multi-stage sample with weights, strata and primary sampling units, and Methods explains why version 1 does not use them. The weighted version would use the dietary day-one weight, `WTDRD1`, for analyses built on the dietary sample, and the fasting-subsample weight, `WTSAF2YR`, for the fasting subsample, rather than the examination weight.
+
+**One conflict in the survival model has to be resolved before that.** For sampling weights, the `lifelines` documentation recommends `robust=True` to get accurate standard errors, and also states that `robust=True` does not handle tied event times, with results that may differ materially when ties are numerous. Follow-up is recorded in whole months, and 425 of the 440 deaths in the survival sample (96.6%) share their month with at least one other death. How to reconcile the two is an open question for the weighted version, not a setting to accept.
+
 ## Reproducibility
