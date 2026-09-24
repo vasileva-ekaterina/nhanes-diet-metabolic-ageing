@@ -325,4 +325,13 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 ## What I'd do next
 
+### Analyses planned and deferred
+
+**The four analyses Methods names as deferred were planned, and set aside to finish version 1, not dropped.** Each is defensible to run; none has been run.
+
+1. **HbA1c-based metabolic syndrome on the full sample.** The primary definition needs fasting blood, which limits Layer 2 to the fasting subsample of 1,015, and that subsample is not random. A four-criteria definition using HbA1c would cover all 2,206 participants and show whether the result depends on who attended a morning appointment.
+2. **Excluding participants on a special diet.** Special diets are adjusted for rather than excluded, because excluding them would remove people with metabolic disease non-randomly. Re-running without them would check that the diet-score estimates do not rest on people whose diet likely changed after a diagnosis.
+3. **Energy adjustment by the residual method.** The score uses nutrient density per 1,000 kcal, chosen because it is easier to explain. The residual method is equally standard; re-running with it would show whether the results depend on that choice.
+4. **Calibration of the Layer 4 models.** Only discrimination was assessed; Limitations explains why calibration was not. It would matter if the predicted probabilities were ever used to make decisions about individuals.
+
 ## Reproducibility
