@@ -309,6 +309,14 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 **The study is not powered for subgroups, and none was analysed.** Split by age band, the 75+ group would have had roughly six outcome events per model parameter, below the conventional minimum of ten, so any estimate there would have been unstable.
 
+### The mortality data and the prediction benchmark
+
+**Some follow-up times are synthetic.** In the public-use mortality file, NCHS replaces follow-up time with synthetic values for an unspecified subset of records to reduce the risk of disclosure, and does not say which records or how many. Vital status is not altered, so every death count stands, but the Kaplan–Meier and Cox estimates rest partly on substituted durations that cannot be identified or excluded.
+
+**Discrimination was assessed, calibration was not.** AUC measures whether the model ranks participants with metabolic syndrome above those without. Calibration measures whether its predicted probabilities match observed rates, and that matters only when a predicted probability will be acted on, for example as a clinical cut-off or a risk score. At a test AUC of 0.663 this model has no such use: the benchmark exists to ask whether a flexible model finds more in these features than a linear one, not to produce a usable score.
+
+**The benchmark rests on one train/test split with default settings.** Both models were evaluated once, on 227 held-out participants, and gradient boosting was run with its default settings, without tuning. Before seeing the result, I fixed a difference of about 0.03 to 0.04 in AUC as the smallest that would count at this test-set size. A different split, or a tuned model, could give different numbers, which is why the result is stated as no gain from the flexible model and not as the flexible model being worse.
+
 ## What I'd do next
 
 ## Reproducibility
