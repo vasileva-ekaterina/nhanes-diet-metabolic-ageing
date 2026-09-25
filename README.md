@@ -4,6 +4,12 @@
 
 ## Why this question
 
+**This project rebuilds my MSc thesis question on open data, with new tools.** My MSc thesis in public health, at Sechenov University, studied dietary patterns and metabolic disorders in older adults in Russia. It combined national morbidity statistics from 2012 to 2019, for the population that Russian statistics class as "above working age", with an online questionnaire answered by 172 people aged 60 and over.
+
+**Those sources could not link one person's diet to that person's health over time.** The national statistics describe the population as a whole. The questionnaire linked diet and health for each respondent, but through self-report, with body mass index calculated from reported height and weight, and it followed no one afterwards. NHANES records, for the same individuals, a 24-hour dietary recall, measured waist and blood pressure and laboratory blood tests, and it is linked to death records through the end of 2019.
+
+**The question is asked in three steps.** Is a better diet associated with lower metabolic risk at the time it is measured (Layer 2)? Is it associated with longer survival (Layer 3)? And, as a benchmark, can metabolic syndrome be predicted from the same data, and does a flexible model predict it better than logistic regression (Layer 4)? Layer 1 builds the diet quality score the other three use.
+
 ## Data and population
 
 ### Population
