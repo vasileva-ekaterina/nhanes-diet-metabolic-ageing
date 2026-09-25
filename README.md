@@ -387,3 +387,9 @@ This writes the re-run notebook, with its new outputs, to `analysis_rerun.ipynb`
 **This has been tested from a clean start, on macOS only.** On 24 September 2026 the repository was cloned into an empty folder, the packages were installed from `requirements.txt` into a new environment, and the notebook was run with the command above. Every printed output matched the committed notebook apart from model-fitting timestamps and the blank lines between outputs, and the three figures were byte-for-byte identical. On Linux the same commands would be expected to work unchanged; on Windows the activation command differs. Neither has been tried.
 
 **The repository holds the notebook with its outputs, the three figures, this README and `requirements.txt`.** The data files and the virtual environment are not included; `.gitignore` keeps both out.
+
+### Reading the mortality file
+
+**The mortality file is fixed-width text, and its column positions had to be worked out.** Each record in `NHANES_2011_2012_MORT_2019_PUBLIC.dat` is one line, and each variable occupies a fixed range of character positions. The NCHS data dictionary gives the variables' order, types and codes but not their positions, and no read-in program came with the download. Column positions were derived by profiling character classes across all 9,756 records, and validated by internal consistency checks: codes within their documented ranges, missing counts matching the data dictionary's definitions, and every record linking on `SEQN`. NCHS also publishes SAS, Stata and R read-in programs, which were not used.
+
+**Lines are 46 to 48 characters long, and that is expected.** Trailing blanks are trimmed, so a record whose last fields are missing is shorter. The positions are counted from the left, and `pandas.read_fwf` reads a range that runs past the end of a short line as missing, which is correct. The positions used are in the notebook's `colspecs`.
