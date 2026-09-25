@@ -2,6 +2,12 @@
 
 ## Summary
 
+**Among adults aged 50 and over in NHANES 2011–2012, a higher diet quality score was associated with lower all-cause mortality through 2019.** Its association with metabolic syndrome ran in the same direction but was not statistically significant. The score rates eight nutrients from a single 24-hour dietary recall, following the logic of DASH-style indices.
+
+**The mortality result is the headline.** In a Cox model of 1,998 participants and 398 deaths, adjusted for age, sex, education, income, smoking and special-diet status, each additional point of the score was associated with a hazard ratio of 0.971 (95% CI 0.953–0.989, p = 0.002), or 0.848 (0.764–0.941) per standard deviation. The survival curves separate mainly for the top quartile of the score rather than along a steady gradient. For metabolic syndrome, among the 906 fasting-subsample participants with complete data, the odds ratio was 0.976 per point (95% CI 0.951–1.003, p = 0.080).
+
+**These are associations in observational data, not effects of changing diet.** Diet was recorded on one day at the start of follow-up, and the analysis is unweighted, so its numbers describe this sample, not the US population. A prediction benchmark found no gain from gradient boosting with default settings over logistic regression for metabolic syndrome (test AUC 0.663 for logistic regression, 0.618 for gradient boosting). Limitations sets out what the results can and cannot support.
+
 ## Why this question
 
 **This project rebuilds my MSc thesis question on open data, with new tools.** My MSc thesis in public health, at Sechenov University, studied dietary patterns and metabolic disorders in older adults in Russia. It combined national morbidity statistics from 2012 to 2019, for the population that Russian statistics class as "above working age", with an online questionnaire answered by 172 people aged 60 and over.
