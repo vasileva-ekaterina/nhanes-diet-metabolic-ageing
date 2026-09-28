@@ -283,7 +283,7 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 **One day of intake stands in for usual diet.** The score is built from a single 24-hour recall per person, so it ranks people by what they ate on one day, not by what they usually eat. Day-to-day variation of this kind blurs the ranking, and I would expect it to pull estimates towards no association rather than away from it. I kept recalls with very low intakes of individual nutrients, because they are plausible single-day intakes and passed NHANES's own reliability flag: two participants had near-zero fibre (one reported a single food item providing 1,736 kcal, likely alcohol) and 37 had no vitamin C.
 
-**Intake is self-reported, and self-reported intake is known to fall below measured expenditure,** more so in older adults and at higher BMI. Every nutrient figure here is reported intake.
+**Intake is self-reported, and self-reported intake may understate what participants actually ate.** Every nutrient figure here is reported intake.
 
 **The sugar component is total sugars, not added sugars.** The variable available in the dietary file (`DR1TSUGR`) includes sugars from fruit and dairy, so the penalised sugar component penalises some foods it should not.
 
