@@ -319,7 +319,7 @@ At a test AUC of 0.663, the model is not a screening tool and is not offered as 
 
 **One covariate pattern is unexplained.** In the Cox model, education level 2 has a higher hazard than level 1 (HR 1.525, 1.102 to 2.110, p = 0.011), while levels 3 and 4 do not differ from level 1. I report this as observed and do not offer an explanation.
 
-**The study is not powered for subgroups, and none was analysed.** Split by age band, the 75+ group would have had roughly six outcome events per model parameter, below the conventional minimum of ten, so any estimate there would have been unstable.
+**The study is not powered for subgroups, and none was analysed.** Split by age band, the metabolic syndrome model in the 75+ group would have had roughly six participants in its smaller outcome group (those without metabolic syndrome) per model parameter, below the conventional minimum of ten, so any estimate there would have been unstable.
 
 ### The mortality data and the prediction benchmark
 
